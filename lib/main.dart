@@ -10,7 +10,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  _getToken() async {
+    await getToken();
+    print("here token get $token");
+    return token;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: token == '' ? const AuthReq() : HomePage(isNew: false),
+      home: _getToken() == '' ? const AuthReq() : HomePage(isNew: false),
     );
   }
 }

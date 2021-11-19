@@ -21,6 +21,7 @@ class TodoManager {
 
   Future<List<Todo>> getTodo() async {
     List<Todo> todos = [];
+    await getToken();
     var client = http.Client();
     var response = await client.get(
       Uri.parse('${base_url}todo/'),

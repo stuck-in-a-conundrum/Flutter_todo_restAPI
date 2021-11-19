@@ -67,5 +67,4 @@ class UserManager {
     }
     return user;
   }
-
 }
